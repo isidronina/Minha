@@ -1,0 +1,26 @@
+<!-- Botão compacto que abre e fecha os dados da conta. -->
+<section class="usuario-menu" aria-label="Conta do usuário">
+  <button
+    class="usuario-botao"
+    type="button"
+    aria-expanded="false"
+    aria-controls="usuario-detalhes"
+  >
+    <span class="usuario-nome"></span>
+    <svg class="usuario-seta" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" />
+    </svg>
+  </button>
+  
+
+  <!-- Painel com os dados da sessão e a opção de sair. -->
+  <div class="usuario-detalhes" id="usuario-detalhes" hidden>
+    <div class="usuario-informacoes">
+      <span class="usuario-rotulo">Nome</span>
+      <span class="usuario-valor usuario-nome-detalhe"></span>
+      <span class="usuario-rotulo">E-mail</span>
+      <span class="usuario-valor usuario-email"></span>
+    </div>
+    <button class="usuario-sair" type="button">Sair da conta</button>
+  </div>
+</section>

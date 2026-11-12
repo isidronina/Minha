@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamentos - Piatã Norte</title>
+    <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="../../Components/MenuLateral/menu.css">
+    <link rel="stylesheet" href="../../Components/User/user.css">
+</head>
+<body>
+    <!-- Estrutura da página: menu lateral e área principal. -->
+    <div class="layout">
+        <menu-lateral></menu-lateral>
+        <div class="pagina">
+            <div class="topo-conta">
+                <usuario-menu></usuario-menu>
+            </div>
+
+            <!-- Título e botão para criar um orçamento novo. -->
+            <div id="topo-pagina">
+                <div class="textos-topo">
+                    <h1 id="titulo-principal">Como estão os orçamentos hoje?</h1>
+                    <p class="subtitulo">Da proposta à entrega: acompanhe o trabalho da marcenaria.</p>
+                </div>
+                <div class="organizar-botao">
+                    <button id="btn-novo-orcamento" type="button">+ Novo orçamento</button>
+                </div>
+            </div>
+
+            <!-- Resumo da quantidade de orçamentos por status. -->
+            <div class="lista-cartoes">
+                <div class="cartao">
+                    <p class="cartao-titulo">ORÇAMENTOS</p>
+                    <h2 class="cartao-numero" id="total-orcamentos">0</h2>
+                    <p class="cartao-descricao">Cadastrados</p>
+                </div>
+                <div class="cartao cartao-destaque">
+                    <p class="cartao-titulo">EM PRODUÇÃO</p>
+                    <h2 class="cartao-numero" id="total-producao">0</h2>
+                    <p class="cartao-descricao">Mão na massa</p>
+                </div>
+                <div class="cartao">
+                    <p class="cartao-titulo">FINALIZADOS</p>
+                    <h2 class="cartao-numero" id="total-finalizados">0</h2>
+                    <p class="cartao-descricao">Entregues e instalados</p>
+                </div>
+            </div>
+
+            <!-- Filtros e campo de pesquisa da lista. -->
+            <div id="area-filtros" class="barra-controles">
+                <div class="grupo-botoes-filtro">
+                    <button class="botao-filtro ativo" id="filtro-todos" type="button">Todos</button>
+                    <button class="botao-filtro" id="filtro-producao" type="button">Em produção</button>
+                    <button class="botao-filtro" id="filtro-finalizados" type="button">Finalizados</button>
+                </div>
+                <div class="campo-pesquisa">
+                    <input type="text" id="pesquisa-orcamentos" placeholder="Buscar cliente, arquiteto ou projeto">
+                </div>
+            </div>
+
+            <!-- Mensagens de confirmação ou de erro. -->
+            <p id="mensagem-dashboard" class="mensagem-dashboard"></p>
+
+            <!-- Tabela preenchida pelo JavaScript com os orçamentos salvos. -->
+            <div id="area-tabela" class="conteudo-principal">
+                <table id="tabela-orcamentos" class="tabela-dados">
+                    <thead>
+                        <tr class="linha-cabecalho">
+                            <th class="coluna-titulo">PROJETO</th>
+                            <th class="coluna-titulo">CLIENTE</th>
+                            <th class="coluna-titulo">ARQUITETO</th>
+                            <th class="coluna-titulo">DATA</th>
+                            <th class="coluna-titulo">STATUS</th>
+                            <th class="coluna-titulo">NOME DO EDITOR</th>
+                            <th class="coluna-titulo">AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-orcamentos"></tbody>
+                </table>
+            </div>
+
+            <!-- Informações de quantidade e botões para trocar de página. -->
+            <div id="rodape-pagina" class="rodape-lista">
+                <p id="texto-contagem" class="info-resultados">Mostrando 0 de 0 orçamentos.</p>
+                <div id="paginacao" class="controles-paginacao">
+                    <button id="btn-anterior" class="botao-pagina" type="button">&larr; Anterior</button>
+                    <span id="pagina-atual" class="indicador-pagina">1 de 1</span>
+                    <button id="btn-proxima" class="botao-pagina" type="button">Próxima &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrega a autenticação e os componentes usados nesta página. -->
+    <script src="../Autenticacao.js"></script>
+    <script src="../../Components/MenuLateral/menu.js"></script>
+    <script src="../../Components/User/user.js"></script>
+    <script src="Dashboard.js"></script>
+</body>
+</html>

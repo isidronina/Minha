@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento - Piatã Norte</title>
+    <link rel="stylesheet" href="Orcamento.css">
+    <link rel="stylesheet" href="../../Components/MenuLateral/menu.css">
+    <link rel="stylesheet" href="../../Components/User/user.css">
+</head>
+<body>
+    <!-- Estrutura geral: menu de navegação e conteúdo da página. -->
+    <div class="layout">
+        <menu-lateral></menu-lateral>
+        <div class="pagina">
+            <!-- Área superior com as informações da conta conectada. -->
+            <div class="topo-conta">
+                <usuario-menu></usuario-menu>
+            </div>
+
+            <div class="page-content">
+                <!-- Link para voltar à lista de orçamentos. -->
+                <a class="back-link" href="../Dashboard/Dashboard.html"><span>‹</span> Todos os orçamentos</a>
+
+                <!-- Título e status do orçamento atual. -->
+                <div class="page-heading">
+                    <p class="eyebrow" id="texto-modo">NOVO ORÇAMENTO</p>
+                    <div class="title-line">
+                        <h1 id="titulo-orcamento">Novo orçamento</h1>
+                        <div class="status-area" id="area-status">
+                            <span class="status" id="status-atual">Em produção</span>
+                            <button class="status-toggle-button" id="btn-alternar-status" type="button">Finalizar projeto</button>
+                        </div>
+                    </div>
+                    <p class="page-subtitle" id="subtitulo-orcamento">Preencha os dados do projeto.</p>
+                </div>
+
+                <!-- Formulário com os dados do projeto, móveis, prazo e pagamento. -->
+                <form class="budget-form" id="form-orcamento">
+                    <!-- Dados do cliente e do projeto. -->
+                    <section class="card client-card">
+                        <h2>Quem é o cliente?</h2>
+                        <div class="client-grid">
+                            <label class="field">
+                                <span>Cliente</span>
+                                <input type="text" id="cliente" required>
+                            </label>
+                            <label class="field">
+                                <span>Arquiteto</span>
+                                <input type="text" id="arquiteto">
+                            </label>
+                            <label class="field project-field">
+                                <span>Projeto</span>
+                                <input type="text" id="projeto" required>
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- Lista de móveis: o JavaScript pode adicionar ou remover cartões. -->
+                    <section class="card furniture-card">
+                        <div class="section-head">
+                            <h2>Móveis e custos</h2>
+                            <p>Informe as medidas e os custos de cada móvel do projeto.</p>
+                        </div>
+
+                        <div id="lista-moveis">
+                            <article class="furniture-item">
+                                <div class="item-heading">
+                                    <strong class="item-number">MÓVEL 1</strong>
+                                    <div class="item-heading-actions">
+                                        <span>Quantidade: 1</span>
+                                        <button class="remove-item-button" type="button">Remover móvel</button>
+                                    </div>
+                                </div>
+                                <label class="field item-name">
+                                    <span>Nome do item</span>
+                                    <input class="campo-nome" type="text" required>
+                                </label>
+                                <label class="field item-description">
+                                    <span>Descrição</span>
+                                    <input class="campo-descricao" type="text">
+                                </label>
+                                <div class="measure-group">
+                                    <h3>Medidas (em metros)</h3>
+                                    <div class="three-column-grid">
+                                        <label class="field"><span>Comprimento (m)</span><input class="campo-comprimento" type="text" required pattern="[0-9]+([.,][0-9]+)?" placeholder="Ex.: 2,00"></label>
+                                        <label class="field"><span>Altura (m)</span><input class="campo-altura" type="text" required pattern="[0-9]+([.,][0-9]+)?" placeholder="Ex.: 1,00"></label>
+                                        <label class="field"><span>Profundidade (m)</span><input class="campo-profundidade" type="text" required pattern="[0-9]+([.,][0-9]+)?" placeholder="Ex.: 0,50"></label>
+                                    </div>
+                                </div>
+                                <div class="cost-group">
+                                    <h3>Custos</h3>
+                                    <div class="three-column-grid">
+                                        <label class="field"><span>Preço da madeira por m³</span><input class="campo-madeira" type="text" required pattern="[0-9]+([.,][0-9]+)?" placeholder="Ex.: 1500,00"></label>
+                                        <label class="field"><span>Insumos (total)</span><input class="campo-insumos" type="text" pattern="[0-9]+([.,][0-9]+)?" value="0"></label>
+                                        <label class="field"><span>Mão de obra</span><input class="campo-mao-de-obra" type="text" pattern="[0-9]+([.,][0-9]+)?" value="0"></label>
+                                    </div>
+                                </div>
+                                <div class="subtotal"><span>Subtotal do móvel</span><strong class="subtotal-valor">R$ 0,00</strong></div>
+                            </article>
+                        </div>
+
+                        <button class="add-item-button" id="btn-adicionar-movel" type="button"><span>＋</span> Adicionar móvel</button>
+                    </section>
+
+                    <!-- Forma de pagamento e prazo de execução. -->
+                    <section class="card payment-card">
+                        <h2>Pagamento e prazo</h2>
+                        <div class="payment-grid">
+                            <label class="field">
+                                <span>Pagamento</span>
+                                <input type="text" id="pagamento" placeholder="Ex.: 50% na contratação e 50% na entrega">
+                            </label>
+                            <label class="field">
+                                <span>Prazo de execução</span>
+                                <input type="text" id="prazo" required placeholder="Ex.: 45 dias úteis">
+                            </label>
+                        </div>
+                        <p class="payment-note">O prazo de execução é contado após confirmação das medidas.</p>
+                        <p class="payment-note">O escopo inclui fabricação e instalação dos móveis. Não inclui eletrodomésticos ou obras civis.</p>
+                    </section>
+
+                    <!-- Total do orçamento, resumo por móvel e botões de ação. -->
+                    <section class="price-summary">
+                        <div class="price-total">
+                            <span class="summary-label">PREÇO ATUALIZADO</span>
+                            <strong id="valor-total">R$ 0,00</strong>
+                            <small>Sem margem ou taxa adicional neste orçamento.</small>
+                        </div>
+                        <div class="price-breakdown" id="resumo-moveis"></div>
+                        <div class="summary-actions">
+                            <button class="save-button" id="btn-salvar" type="button">Salvar orçamento</button>
+                            <button class="preview-button" id="btn-visualizar" type="button">Visualizar orçamento ›</button>
+                        </div>
+                    </section>
+
+                    <!-- Mensagens de erro da validação do formulário. -->
+                    <p class="mensagem-erro" id="mensagem-erro"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrega a autenticação e os componentes usados nesta página. -->
+    <script src="../Autenticacao.js"></script>
+    <script src="../../Components/MenuLateral/menu.js"></script>
+    <script src="../../Components/User/user.js"></script>
+    <script src="Orcamento.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+/* Área principal do Dashboard e informações da conta. */
+.pagina {
+    margin: 0;
+    min-height: 100vh;
+    padding: 8px clamp(12px, 3vw, 29px) 20px;
+    background-color: #f6f6f6;
+    color: #111111;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.pagina * {
+    box-sizing: border-box;
+}
+
+.topo-conta {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+
+.topo-conta usuario-menu {
+    width: min(240px, 100%);
+    margin: 0;
+    padding: 0;
+}
+
+/* Título da página e botão para criar um orçamento. */
+#topo-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+#topo-pagina > *,
+.textos-topo {
+    min-width: 0;
+}
+
+#titulo-principal {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 30px);
+}
+
+.subtitulo {
+    margin: 8px 0 0;
+    color: #666666;
+    font-size: 14px;
+}
+
+#btn-novo-orcamento {
+    width: 172px;
+    max-width: 100%;
+    height: 44px;
+    white-space: nowrap;
+    background-color: #b51f22;
+    border: 0;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Cartões com a quantidade de orçamentos por situação. */
+.lista-cartoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.cartao {
+    min-width: 0;
+    min-height: 84px;
+    padding: 18px 24px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.cartao-titulo {
+    margin: 4px 0 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.cartao-numero {
+    margin: 0 0 6px;
+    font-size: clamp(28px, 3vw, 34px);
+}
+
+.cartao-descricao {
+    margin: 0;
+    color: #666666;
+    font-size: 14px;
+}
+
+.cartao-destaque .cartao-titulo,
+.cartao-destaque .cartao-numero,
+.cartao-destaque .cartao-descricao {
+    color: #b51f22;
+}
+
+/* Botões de filtro e campo de pesquisa. */
+.barra-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.grupo-botoes-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botao-filtro {
+    min-height: 38px;
+    padding: 0 18px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    color: #111111;
+    font-size: 13px;
+}
+
+.botao-filtro.ativo {
+    background-color: #111111;
+    border-color: #111111;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Tabela com os orçamentos e suas informações. */
+.conteudo-principal {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabela-dados {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    text-align: left;
+}
+
+.tabela-dados th:nth-child(1),
+.tabela-dados td.celula-projeto {
+    width: 19%;
+}
+
+.tabela-dados th:nth-child(2),
+.tabela-dados td.celula-cliente {
+    width: 11%;
+}
+
+.tabela-dados th:nth-child(3),
+.tabela-dados td.celula-arquiteto {
+    width: 11%;
+}
+
+.tabela-dados th:nth-child(4),
+.tabela-dados td.celula-data {
+    width: 9%;
+}
+
+.tabela-dados th:nth-child(5),
+.tabela-dados td.celula-status {
+    width: 13%;
+}
+
+.tabela-dados th:nth-child(6),
+.tabela-dados td.celula-editor {
+    width: 11%;
+}
+
+.tabela-dados th:nth-child(7),
+.tabela-dados td.celula-acoes {
+    width: 26%;
+}
+
+.coluna-titulo {
+    padding: 10px 22px;
+    border-bottom: 1px solid #e3e3e3;
+    color: #555555;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.linha-item {
+    height: 74px;
+}
+
+.linha-item td {
+    padding: 12px 22px;
+    background-color: #ffffff;
+    font-size: 13px;
+}
+
+.celula-projeto {
+    width: 21%;
+    border-radius: 16px 0 0 16px;
+}
+
+.celula-cliente {
+    width: 12%;
+}
+
+.celula-arquiteto {
+    width: 12%;
+}
+
+.celula-data {
+    width: 10%;
+}
+
+.celula-status {
+    width: 13%;
+}
+
+.celula-editor {
+    width: 12%;
+    color: #666666;
+}
+
+.celula-acoes {
+    border-radius: 0 16px 16px 0;
+    white-space: nowrap;
+}
+
+/* Estilos dos nomes, status e botões de ação da tabela. */
+.nome-projeto {
+    font-size: 14px;
+}
+
+.codigo-projeto {
+    display: inline-block;
+    margin-top: 6px;
+    color: #666666;
+    font-size: 12px;
+}
+
+.etiqueta-status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.botao-visualizar {
+    padding: 8px 16px;
+    background-color: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 999px;
+    color: #111111;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.link-acao {
+    display: inline-block;
+    margin-left: 6px;
+    color: #b51f22;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Contagem de resultados e navegação entre páginas. */
+.rodape-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+    color: #666666;
+    font-size: 13px;
+}
+
+.controles-paginacao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.botao-pagina {
+    padding: 8px 12px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    color: #333333;
+    font-size: 12px;
+}
+
+/* Em telas médias, mantém a tabela com largura para rolagem horizontal. */
+@media (max-width: 1024px) {
+    .tabela-dados {
+        min-width: 900px;
+    }
+}
+
+/* Ajusta cabeçalho, cartões, filtros e tabela para telas menores. */
+@media (max-width: 760px) {
+    #topo-pagina {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .lista-cartoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cartao:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .barra-controles {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .rodape-lista {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .controles-paginacao {
+        flex-wrap: wrap;
+    }
+
+    .tabela-dados {
+        min-width: 900px;
+    }
+
+    .coluna-titulo {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .linha-item td {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+/* Empilha os cartões e reduz espaços em telas de celular. */
+@media (max-width: 480px) {
+    .pagina {
+        padding: 12px;
+    }
+
+    #topo-pagina {
+        gap: 12px;
+    }
+
+    #titulo-principal {
+        font-size: 24px;
+    }
+
+    .lista-cartoes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .cartao:last-child {
+        grid-column: auto;
+    }
+
+    .cartao {
+        padding: 16px 18px;
+    }
+
+    .grupo-botoes-filtro {
+        gap: 8px;
+    }
+
+    .botao-filtro {
+        padding: 0 12px;
+    }
+
+    .controles-paginacao {
+        gap: 8px;
+    }
+}
+
+/* Pesquisa e retorno das operações do Dashboard. */
+.campo-pesquisa {
+    width: 290px;
+    max-width: 100%;
+}
+
+.campo-pesquisa input {
+    width: 100%;
+    min-height: 38px;
+    padding: 8px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    background-color: #ffffff;
+    color: #222222;
+    font-size: 13px;
+}
+
+.campo-pesquisa input:focus {
+    border-color: #b51f22;
+}
+
+.mensagem-dashboard {
+    margin: 0 0 12px;
+    color: #a81c1c;
+    font-size: 13px;
+}
+
+.celula-vazia {
+    padding: 24px;
+    background-color: #ffffff;
+    color: #666666;
+    text-align: center;
+}
+
+.celula-acoes button {
+    margin: 3px 5px 3px 0;
+}
+
+.link-excluir {
+    color: #8e1616;
+}
+
+@media (max-width: 760px) {
+    .campo-pesquisa {
+        width: 100%;
+    }
+}
+
+.celula-acoes .link-acao {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: Arial, sans-serif;
+}
+
+.etiqueta-status.producao {
+    background-color: #fce8e8;
+    color: #a81c1c;
+}
+
+.etiqueta-status.finalizado {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.celula-acoes .link-acao {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: Arial, sans-serif;
+}

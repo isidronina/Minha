@@ -1,0 +1,322 @@
+/* Definição da paleta de cores usada em toda a página. */
+
+:root {
+  --cor_vermelha: #ad1f23;
+  --cor_preta: #000000;
+  --cor_branca: #ffffff;
+  --cor_fundo: #f4f6f9;
+  --cor_texto_secundario: #555a62;
+  --cor_borda: #dfe3e8;
+  --fonte_titulo: "Montserrat", "Segoe UI", Arial, sans-serif;
+  --fonte_padrao: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/*_______________________________________*/
+
+/* Mantém padding e bordas dentro da largura definida dos elementos. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Estilo do corpo da página. */
+body {
+  margin: 0;
+  background: var(--cor_fundo);
+  font-family: var(--fonte_padrao);
+}
+
+/*_______________________________________*/
+
+
+
+/* Ajuste para imagens e SVGs dentro da página.*/
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*_______________________________________*/
+
+
+
+/* Estilo padrão para links. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*_______________________________________*/
+
+
+
+/*
+  Parte principal da página.
+*/
+.pagina {
+  padding: 24px 24px 48px;
+}
+
+.topo-conta {
+  display: flex;
+  justify-content: flex-end;
+  width: min(100%, 1146px);
+  margin: 0 auto 24px;
+}
+
+.topo-conta usuario-menu {
+  width: min(240px, 100%);
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Container interno da página.
+*/
+.conteudo_pagina {
+  /* Limita a largura máxima do conteúdo. */
+  width: min(100%, 1146px);
+  /* Centraliza o conteúdo horizontalmente. */
+  margin: 0 auto;
+}
+
+
+
+/* Estilo do título principal*/
+.titulo_pagina {
+  margin: 19px 0 0;
+  font-family: var(--fonte_titulo);
+  letter-spacing: -0.03em;
+  color: var(--cor_preta);
+}
+
+/*____________________________*/
+
+
+
+/* Estilo do subtitulo principal*/
+.descricao_pagina {
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--cor_texto_secundario);
+}
+
+/*_______________________________*/
+
+
+
+/* Estilo dos cartões da página.*/
+.cartao {
+  background: var(--cor_branca);
+  border-radius: 28px;
+  padding: 30px;
+}
+
+.titulo_cartao {
+  margin: 0;
+  font-family: var(--fonte_titulo);
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  color: var(--cor_preta);
+}
+
+.descricao_cartao {
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--cor_texto_secundario);
+}
+
+.cartao_formulario {
+  margin-top: 20px;
+}
+
+/*_______________________________*/
+
+
+
+/* Estilo da tabela dos cadastrados*/
+.area_tabela {
+  margin-top: 16px;
+  border: 1px solid var(--cor_borda);
+  border-radius: 16px;
+  overflow-x: auto;
+  /* Esconde o overflow horizontal. */
+}
+
+.tabela_usuarios {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.tabela_usuarios thead tr {
+  background: var(--cor_fundo);
+}
+
+.tabela_usuarios th {
+  height: 38px;
+  padding: 0 16px;
+  text-align: left;
+  font-size: 12px;
+  color: var(--cor_texto_secundario);
+}
+
+.tabela_usuarios td {
+  height: 45px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--cor_preta);
+  border-top: 1px solid #e3e6ea;
+}
+
+.tabela_usuarios th:first-child,
+.tabela_usuarios td:first-child {
+  width: 50.5%;
+}
+
+/*_______________________________*/
+
+
+
+/* Estilo do formulário de cadastro. */
+
+.formulario {
+  margin-top: 16px;
+}
+
+a:focus-visible,
+/* listra vermelha para o inputs . */
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--cor_vermelha);
+  outline-offset: 2px;
+}
+
+.linha_campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.campo_formulario {
+  margin-bottom: 18px;
+}
+
+
+.campo_formulario label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--cor_preta);
+}
+
+.campo_formulario input {
+  width: 100%;
+  min-width: 0;
+  height: 47px;
+  padding: 0 15px;
+  border: 1px solid var(--cor_borda);
+  border-radius: 12px;
+  font-family: var(--fonte_padrao);
+  font-size: 14px;
+}
+
+.campo_formulario input::placeholder {
+  color: #8c9199;
+}
+
+
+.campo_formulario input:focus {
+  /*Borda extra*/
+  border-color: var(--cor_vermelha);
+}
+
+.campo_senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.botao_visibilidade {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #666666;
+  transform: translateY(-50%);
+}
+
+.icone_senha_oculta {
+  display: none;
+}
+
+.botao_visibilidade.senha_visivel .icone_senha_visivel {
+  display: none;
+}
+
+.botao_visibilidade.senha_visivel .icone_senha_oculta {
+  display: block;
+}
+
+.botao_envio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 19px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cor_vermelha);
+  color: var(--cor_branca);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.botao_envio:hover {
+  background: #8f191d;
+}
+/*_______________________________*/
+
+
+
+/*Ajustes para responsividade */
+@media (max-width: 900px) {
+
+  .pagina {
+    padding: 24px 16px 48px;
+  }
+
+  .cartao {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .linha_campos {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao_envio {
+    transition: none;
+  }
+}
+/*_______________________________*/

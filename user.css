@@ -1,0 +1,138 @@
+/* Posicionamento e aparência do componente de conta. */
+usuario-menu {
+  display: block;
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 16px;
+  color: #252830;
+}
+
+.usuario-menu {
+  position: relative;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Botão compacto com nome e indicador de abertura. */
+.usuario-botao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  border: 1px solid #e4e6eb;
+  border-radius: 18px;
+  background: #fff;
+  color: #16181d;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Nome exibido no botão, truncado quando não houver espaço. */
+.usuario-nome {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Indicador visual do estado aberto ou fechado. */
+.usuario-seta {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  color: #9aa0aa;
+  transition: transform 0.2s ease;
+}
+
+.usuario-botao[aria-expanded="true"] {
+  border-radius: 18px 18px 0 0;
+}
+
+.usuario-botao[aria-expanded="true"] .usuario-seta {
+  transform: rotate(180deg);
+}
+
+/* Painel suspenso com os dados da sessão. */
+.usuario-detalhes {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid #e4e6eb;
+  border-top: 0;
+  border-radius: 0 0 18px 18px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(20, 25, 35, 0.08);
+}
+
+.usuario-detalhes[hidden] {
+  display: none;
+}
+
+/* Informações identificadas por rótulo e valor. */
+.usuario-informacoes {
+  display: grid;
+  gap: 8px;
+  padding: 18px 22px;
+  border-top: 1px solid #e4e6eb;
+}
+
+.usuario-rotulo {
+  color: #717783;
+  font-size: 12px;
+}
+
+.usuario-valor {
+  overflow-wrap: anywhere;
+  color: #252830;
+  font-size: 14px;
+}
+
+/* Ação para sair da conta. */
+.usuario-sair {
+  width: calc(100% - 24px);
+  min-height: 48px;
+  margin: 0 12px 12px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 14px;
+  background: #f8e9ea;
+  color: #bd171d;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.usuario-sair:hover {
+  background: #f3d9db;
+}
+
+.usuario-botao:focus-visible,
+.usuario-sair:focus-visible {
+  outline: 3px solid #ad1f23;
+  outline-offset: 2px;
+}
+
+/* Em telas pequenas, o painel acompanha o fluxo do conteúdo. */
+@media (max-width: 768px) {
+  usuario-menu {
+    margin-top: 4px;
+    padding-top: 0;
+  }
+
+  .usuario-detalhes {
+    position: static;
+    border-top: 0;
+    border-radius: 0 0 18px 18px;
+  }
+}
+

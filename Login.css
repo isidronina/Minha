@@ -1,0 +1,259 @@
+
+:root {
+  --cor_vermelha: #ad1f23;
+  --cor_vermelho_hover: #8f191d;
+  --cor_fundo: #f4f6f9;
+  --cor_texto_secundario: #555a62;
+  --cor_borda: #dfe3e8;
+  --fonte_titulo: "Montserrat", "Segoe UI", Arial, sans-serif;
+  --fonte_padrao: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background: var(--cor_fundo);
+  font-family: var(--fonte_padrao);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ao passar o mouse, todo link ganha sublinhado */
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Borda vermelha ao navegar com o teclado (acessibilidade) */
+:focus-visible {
+  outline: 3px solid var(--cor_vermelha);
+  outline-offset: 2px;
+}
+
+/*_______________________________________*/
+
+/* Isso divide a tela em duas colunas: imagem (esquerda) e formulário (direita) */
+.login_grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  min-height: 100vh;
+}
+
+/* Área da imagem lateral */
+.login_imagem {
+  position: relative;
+  background: #e4e8f0;
+}
+
+/* Faz a imagem preencher toda a área lateral sem distorcer */
+.login_imagem img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Isso centraliza o formulário no meio do painel */
+.login_painel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+/* Caixa que limita a largura do formulário */
+.login_caixa {
+  width: 100%;
+  max-width: 440px;
+}
+
+/*_______________________________________*/
+
+
+.botao_voltar {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+.titulo_pagina {
+  margin-top: 20px;
+  font: 600 36px/1.2 var(--fonte_titulo);
+  color: #111;
+}
+
+.descricao_pagina,
+.texto_cadastro {
+  font-size: 15px;
+  color: var(--cor_texto_secundario);
+}
+
+.descricao_pagina {
+  line-height: 22px;
+}
+
+
+.texto_cadastro {
+  margin-top: 24px;
+  text-align: center;
+}
+
+/*_______________________________________*/
+
+/* Formulário (define o tamanho de fonte 13px para labels e botão de mostrar senha) */
+.formulario {
+  margin-top: 19px;
+  font-size: 13px;
+}
+
+/* Espaço entre cada campo */
+.campo_formulario {
+  margin-top: 20px;
+}
+
+/* Texto acima de cada campo (E-mail, Senha) */
+.formulario label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+
+.linha_campo_topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+
+.link_destaque {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor_vermelha);
+}
+
+.link_destaque:hover {
+  color: var(--cor_vermelho_hover);
+}
+
+/* Campos de digitar (e-mail e senha) */
+.campo_formulario input {
+  display: block;
+  width: 100%;
+  height: 47px;
+  padding: 0 15px;
+  border: 1px solid var(--cor_borda);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 14px;
+}
+
+/* Cor do texto de exemplo dentro do campo */
+.campo_formulario input::placeholder {
+  color: #8c9199;
+}
+
+
+.campo_formulario input:focus {
+  border-color: var(--cor_vermelha);
+  outline: none;
+}
+
+/* Isso permite colocar o botão "Mostrar" dentro do campo de senha */
+.campo_senha {
+  position: relative;
+}
+
+/* Espaço à direita para o texto não ficar embaixo do botão */
+.campo_senha input {
+  padding-right: 84px;
+}
+
+/* Botão "Mostrar / Ocultar" posicionado no canto direito do campo */
+.botao_visibilidade {
+  position: absolute;
+  inset: 0 16px 0 auto;
+  border: 0;
+  background: none;
+  font-weight: 500;
+  color: #2b2f36;
+}
+
+.botao_visibilidade:hover {
+  color: var(--cor_vermelha);
+}
+
+/* Botão principal "Entrar na minha conta" */
+.botao_envio {
+  width: 100%;
+  height: 48px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cor_vermelha);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.botao_envio:hover {
+  background: var(--cor_vermelho_hover);
+}
+
+
+.mensagem_erro {
+  font-size: 12px;
+  color: var(--cor_vermelha);
+}
+
+/* Isso faz a troca de cor do botão ser suave (só se o usuário permitir animações) */
+@media (prefers-reduced-motion: no-preference) {
+  .botao_envio {
+    transition: background-color 0.2s ease;
+  }
+}
+
+/*_______________________________________*/
+
+/* Isso modifica o layout em telas menores (celular e tablet) */
+@media (max-width: 900px) {
+  /* Uma coluna só */
+  .login_grid {
+    grid-template-columns: 1fr;
+  }
+  /* Esconde a imagem lateral */
+  .login_imagem {
+    display: none;
+  }
+  .login_painel {
+    padding: 40px 24px;
+  }
+  /* Título um pouco menor */
+  .titulo_pagina {
+    font-size: 30px;
+  }
+}

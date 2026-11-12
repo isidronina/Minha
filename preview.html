@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévia do Orçamento - Piatã Norte</title>
+    <link rel="stylesheet" href="preview.css">
+    <link rel="stylesheet" href="../../Components/MenuLateral/menu.css">
+    <link rel="stylesheet" href="../../Components/User/user.css">
+</head>
+<body>
+    <!-- Estrutura geral da página, começando pelo menu lateral. -->
+    <div class="layout">
+        <menu-lateral></menu-lateral>
+
+        <div class="pagina">
+        <!-- Botão para retornar à página anterior. -->
+        <button type="button" class="botao-voltar" onclick="voltarPagina()">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+                <path d="M14 8H2M7 3L2 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span id="texto-voltar">Voltar ao orçamento</span>
+        </button>
+
+        <!-- Título da prévia e botões para imprimir ou salvar como PDF. -->
+        <section class="cabecalho-principal">
+            <div class="conteudo-titulo">
+                <span class="etiqueta-topo">Prévia do PDF</span>
+                <h1>Orçamento pronto para conferir.</h1>
+                <p class="subtitulo" id="sub-cabecalho">Carregando...</p>
+                <span id="badge-status" class="badge-status">Carregando</span>
+            </div>
+
+            <div class="grupo-botoes">
+                <button type="button" class="botao botao-vermelho" onclick="imprimirOrcamento()">Salvar como PDF</button>
+                <button type="button" class="botao botao-linha" onclick="imprimirOrcamento()">Imprimir</button>
+            </div>
+        </section>
+
+        <!-- Folha que será exibida na prévia e usada na impressão. -->
+        <section class="secao-preview">
+            <article class="folha-a4" aria-label="Prévia do orçamento">
+                <header class="a4-cabecalho">
+                    <div class="a4-logo">
+                        <img src="../../Assets/Logo.png" alt="Logotipo Piatã Norte">
+                    </div>
+                    <div class="a4-lado-direito">
+                        <h1 class="a4-titulo">ORÇAMENTO</h1>
+                        <p class="a4-data" id="a4-data">São Paulo</p>
+                    </div>
+                </header>
+
+                <!-- Identificação do arquiteto e do cliente. -->
+                <div class="a4-cliente">
+                    <p><strong>A/C:</strong> <span id="a4-arquiteto"></span></p>
+                    <p><strong>Cliente(s):</strong> <span id="a4-cliente"></span></p>
+                </div>
+
+                <p class="a4-intro">Conforme solicitação estamos enviando orçamento para os seguintes itens:</p>
+
+                <!-- Os móveis são inseridos aqui pelo JavaScript. -->
+                <div class="a4-itens" id="a4-lista-itens">
+                </div>
+                <p><strong>Valor total do orçamento:</strong> <span id="a4-total"></span></p>
+
+                <!-- Prazo, garantia e condição de pagamento do orçamento. -->
+                <section class="a4-condicoes">
+                    <h2>CONDIÇÕES DO ORÇAMENTO</h2>
+                    <ul>
+                        <li>Prazo de entrega de <span id="a4-prazo">10 dias úteis</span> após a contratação.</li>
+                        <li>1 ano de garantia, desde que observadas as condições adequadas de uso.</li>
+                        <li>Condição de pagamento: <span id="a4-pagamento"></span></li>
+                    </ul>
+                </section>
+
+                <div class="a4-fechamento">
+                    <p>Agradecemos a oportunidade e permanecemos à disposição para quaisquer esclarecimentos.</p>
+                </div>
+
+                <div class="a4-fechamento">
+                    <b class="a4-saudacao">Atenciosamente,</b>
+                    <p class="a4-nomes-responsaveis">Mariano Alves da Silva &amp; Homero Pereira de Santana</p>
+                    <small class="a4-empresa">Marcenaria Piatã Norte</small>
+                </div>
+
+                <!-- Endereço e contatos da marcenaria. -->
+                <footer class="a4-rodape">
+                    <p class="a4-rodape-titulo">Piatã Norte Marcenaria</p>
+                    <p>Rua José Henrique Bello 04 - Jardim Alvorada - São Paulo - SP.</p>
+                    <p>Mariano Alves (11) 91854-3085</p>
+                    <p>Homero Pereira (11) 96440-7514</p>
+                    <p>Email: piatanorte.moveis@hotmail.com</p>
+                </footer>
+            </article>
+
+            <p class="legenda-fim" id="preview-legenda-fim">Fim do documento · página 1 de 1</p>
+        </section>
+    </div>
+ </div> <!-- Fechando o layout -->
+
+    <!-- Carrega a autenticação e os componentes usados nesta página. -->
+    <script src="../Autenticacao.js"></script>
+    <script src="../../Components/MenuLateral/menu.js"></script>
+    <script src="../../Components/User/user.js"></script>
+    <script src="preview.js"></script>
+</body>
+</html>

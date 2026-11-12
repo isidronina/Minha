@@ -1,0 +1,466 @@
+/* Cores principais e estilos gerais da página. */
+:root {
+    --vermelho: #a81c1c;
+    --fundo: #f6f6f6;
+    --texto: #1a1a1a;
+    --cinza: #666666;
+    --borda: #e0e4eb;
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+.pagina {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 8px 32px 40px;
+    background: var(--fundo);
+    box-sizing: border-box;
+}
+
+.pagina * {
+    box-sizing: border-box;
+}
+
+.topo-conta {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 16px;
+}
+
+.topo-conta usuario-menu {
+    width: 240px;
+}
+
+/* Conteúdo do orçamento, título e status do projeto. */
+.page-content {
+    width: 100%;
+    max-width: 1660px;
+    margin: 0 auto;
+    padding: 0 0 28px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    color: #252830;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.back-link span {
+    color: #686d76;
+    font-size: 24px;
+}
+
+.page-heading {
+    margin-top: 23px;
+}
+
+.eyebrow {
+    color: var(--vermelho);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.title-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-top: 5px;
+}
+
+.title-line h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.status-area {
+    display: none;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.status {
+    color: var(--vermelho);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-toggle-button {
+    padding: 8px 13px;
+    border: 1px solid #dedfe3;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--vermelho);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.page-subtitle {
+    margin: 7px 0 0;
+    color: #6d727c;
+    font-size: 14px;
+}
+
+.budget-form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Cartões e campos para identificar o cliente e o projeto. */
+.card {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(24, 32, 48, .055);
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.client-card {
+    margin-top: 20px;
+    padding: 22px 24px 24px;
+}
+
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.field > span {
+    color: #20232a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.field input {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #f5f6f8;
+    color: #30343b;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.field input:focus {
+    border-color: #a81c1c;
+}
+
+/* Lista de móveis, medidas, custos e subtotal de cada item. */
+.furniture-card {
+    margin-top: 16px;
+    padding: 22px 24px 24px;
+}
+
+.section-head p {
+    margin: 5px 0 0;
+    color: #777d87;
+    font-size: 13px;
+}
+
+.furniture-item {
+    margin-top: 16px;
+    padding: 18px;
+    border: 1px solid #e0e4eb;
+    border-radius: 12px;
+    background: #f4f6f9;
+}
+
+.item-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+.item-number {
+    color: var(--vermelho);
+    font-size: 12px;
+}
+
+.item-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.item-heading-actions span {
+    color: #626873;
+    font-size: 12px;
+}
+
+.remove-item-button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #8e1616;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-name {
+    margin-top: 13px;
+}
+
+.item-description {
+    margin-top: 12px;
+}
+
+.measure-group,
+.cost-group {
+    margin-top: 17px;
+}
+
+.measure-group h3,
+.cost-group h3 {
+    margin: 0;
+    color: #292d34;
+    font-size: 13px;
+}
+
+.three-column-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 9px;
+}
+
+.three-column-grid .field input {
+    height: 40px;
+    background: #ffffff;
+}
+
+.subtotal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 14px;
+    padding: 10px 12px;
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #747984;
+    font-size: 12px;
+}
+
+.subtotal strong {
+    color: #17191e;
+    font-size: 16px;
+}
+
+.add-item-button {
+    margin-top: 14px;
+    padding: 9px 14px;
+    border: 1px solid #25272d;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #181a1f;
+    font-size: 13px;
+}
+
+/* Campos de pagamento e prazo de execução. */
+.payment-card {
+    margin-top: 16px;
+    padding: 22px 24px 20px;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: 1.18fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.payment-note {
+    margin: 10px 0 0;
+    color: #858a94;
+    font-size: 12px;
+}
+
+/* Total do orçamento, resumo dos móveis e botões para salvar ou visualizar. */
+.price-summary {
+    display: grid;
+    grid-template-columns: 1.15fr 1.2fr .95fr;
+    align-items: center;
+    gap: 22px;
+    margin-top: 16px;
+    padding: 22px 28px;
+    border-radius: 15px;
+    background: var(--vermelho);
+    color: #ffffff;
+}
+
+.price-total {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-label {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.price-total strong {
+    margin-top: 4px;
+    font-size: 32px;
+}
+
+.price-total small {
+    margin-top: 7px;
+    color: #f0cacc;
+    font-size: 11px;
+}
+
+.price-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.linha-resumo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.linha-resumo span {
+    color: #f3dfe0;
+    font-size: 12px;
+}
+
+.linha-resumo strong {
+    font-size: 13px;
+}
+
+.summary-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.summary-actions button {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 12px;
+    border-radius: 22px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.save-button {
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    color: #212329;
+}
+
+.preview-button {
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+}
+
+.mensagem-erro {
+    color: #a81c1c;
+    font-size: 13px;
+}
+
+/* Ajusta o resumo e os botões para telas médias. */
+@media (max-width: 900px) {
+    .pagina {
+        padding: 8px 20px 32px;
+    }
+
+    .price-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .summary-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+    }
+}
+
+/* Reduz o número de colunas em telas menores. */
+@media (max-width: 760px) {
+    .pagina {
+        padding: 8px 16px 24px;
+    }
+
+    .client-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-field {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Organiza os campos em uma coluna em telas de celular. */
+@media (max-width: 560px) {
+    .title-line {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .client-card,
+    .furniture-card,
+    .payment-card {
+        padding: 18px 14px;
+    }
+
+    .client-grid,
+    .payment-grid,
+    .three-column-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-field {
+        grid-column: auto;
+    }
+
+    .furniture-item {
+        padding: 14px;
+    }
+
+    .price-summary {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .summary-actions {
+        grid-column: auto;
+        flex-direction: column;
+    }
+}

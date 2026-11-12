@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configuração da codificação da página -->
+  <meta charset="UTF-8" />
+  <!-- Configuração da responsividade em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="Cadastro.css" />
+  <link rel="stylesheet" href="../../Components/MenuLateral/menu.css" />
+  <link rel="stylesheet" href="../../Components/User/user.css" />
+  <title>Gestão de usuários</title>
+</head>
+
+<body>
+  <!-- Layout comum: menu lateral e conteúdo da gestão de usuários. -->
+  <div class="layout">
+    <menu-lateral></menu-lateral>
+    <main class="pagina">
+      <div class="topo-conta">
+        <usuario-menu></usuario-menu>
+      </div>
+
+  <!-- Container central da página -->
+  <div class="conteudo_pagina">
+
+
+    <!-- Cabeçalho principal da página -->
+      <h1 class="titulo_pagina">Gestão de usuários</h1>
+      <p class="descricao_pagina">Acompanhe os acessos internos e adicione novos colaboradores ao sistema.</p>
+    <!--_______________________________-->
+
+
+    <!-- Seção usuários cadastrados -->
+      <!-- Tabela com os usuários que já têm acesso ao sistema. -->
+      <section class="cartao">
+
+        <h2 class="titulo_cartao">Usuários cadastrados</h2>
+        <p class="descricao_cartao">0 usuário(s) ativo(s) no sistema.</p>
+
+        <div class="area_tabela">
+          <table class="tabela_usuarios">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+    <!--_______________________________-->
+
+
+
+    <!-- Seção add novo usuário -->
+      <!-- Formulário para cadastrar um novo colaborador. -->
+      <section class="cartao cartao_formulario">
+        
+        <h2 class="titulo_cartao">Adicionar usuário</h2>
+        <p class="descricao_cartao">Cadastre um novo colaborador com acesso ao sistema.</p>
+
+        <form class="formulario">
+          <div class="linha_campos">
+
+            <!-- Campo da Nome -->
+              <div class="campo_formulario">
+                <label for="nome_usuario">Nome</label>
+                <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Nome completo" autocomplete="name" required />
+              </div>
+            <!--_______________________________-->
+
+
+            <!-- Campo do E-mail -->
+              <div class="campo_formulario">
+                <label for="email_usuario">E-mail</label>
+                <input type="email" id="email_usuario" name="email_usuario" placeholder="nome@empresa.com" autocomplete="email" required />
+              </div>
+            <!--_______________________________-->
+
+          </div>
+
+          <!-- Campo da senha -->
+            <div class="campo_formulario">
+              <label for="senha_usuario">Senha</label>
+              <div class="campo_senha">
+                
+                <input type="password" id="senha_usuario" name="senha_usuario" placeholder="Mínimo 6 caracteres" minlength="6" autocomplete="new-password" required />
+
+
+                <button type="button" class="botao_visibilidade" aria-label="Mostrar senha">
+                  
+                  <!-- Ícone de senha visível -->
+                  <svg class="icone_senha_visivel" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <!-- Traço do olho visível -->
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <!-- Pupila do olho -->
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+
+                  <!-- Ícone de senha oculta -->
+                  <svg class="icone_senha_oculta" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <!-- Linha principal do olho oculto -->
+                    <path
+                      d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                    </path>
+                    <!-- Linha de corte do ícone -->
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                  
+                </button>
+                
+              </div>
+            </div>
+          <!--_______________________________-->
+
+
+          <!-- Botão de envio do formulário -->
+            <button type="submit" class="botao_envio">Adicionar usuário</button>
+          <!--_______________________________-->
+
+        </form>
+
+      </section>
+    <!--_______________________________-->
+
+    </main>
+  </div>
+
+  <!-- Scripts de autenticação, componentes visuais e ações desta página. -->
+    <script src="../Autenticacao.js"></script>
+    <script src="../../Components/MenuLateral/menu.js"></script>
+    <script src="../../Components/User/user.js"></script>
+    <script src="cadastro.js"></script>
+  <!--____________________________________-->
+
+</body>
+</html>

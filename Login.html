@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Login - Painel Administrativo</title>
+
+  
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+
+  <!-- Área principal da tela de login. -->
+  <!-- Layout principal: imagem na esquerda e formulário na direita -->
+  <main class="login_grid">
+
+    <!-- Imagem lateral (some em telas pequenas) -->
+    <div class="login_imagem">
+      <img src="../../Assets/SalaBranca.png" alt="Ambiente com móveis sob medida em madeira">
+    </div>
+
+    <!-- Painel onde fica o formulário -->
+    <section class="login_painel">
+      <div class="login_caixa">
+
+        <h1 class="titulo_pagina">Bem-vindo de volta!</h1>
+        <p class="descricao_pagina">Entre com seus dados para acessar sua conta.</p>
+
+        <!-- Formulário de login (o Login.js controla o envio dele) -->
+        <form class="formulario" id="login-form" novalidate>
+
+          <!-- Campo de e-mail -->
+          <div class="campo_formulario">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@gmail.com" autocomplete="email" required>
+            <!-- Aqui aparece o erro do e-mail (o JS mostra e esconde) -->
+            <small class="mensagem_erro" data-error="email" hidden></small>
+          </div>
+
+          <!-- Campo de senha -->
+          <div class="campo_formulario">
+            <label for="senha">Senha</label>
+
+            <div class="campo_senha">
+              <input type="password" id="senha" name="senha" placeholder="••••••••" autocomplete="current-password" required>
+              <!-- Botão que mostra ou esconde a senha (o JS troca o texto Mostrar/Ocultar) -->
+              <button type="button" class="botao_visibilidade" data-action="toggle-login-password">Mostrar</button>
+            </div>
+            <!-- Aqui aparece o erro da senha (o JS mostra e esconde) -->
+            <small class="mensagem_erro" data-error="senha" hidden></small>
+          </div>
+
+          <!-- Botão que envia o formulário e faz o login -->
+          <button type="submit" class="botao_envio">Entrar na minha conta</button>
+
+          <!-- Aqui aparece um erro geral do formulário (ex.: falha ao salvar a sessão) -->
+          <small class="mensagem_erro" role="alert" data-error="form" hidden></small>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Carrega as funções de autenticação e os controles do formulário. -->
+  <script src="../Autenticacao.js"></script>
+  <script src="Login.js"></script>
+</body>
+</html>

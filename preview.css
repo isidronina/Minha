@@ -1,0 +1,338 @@
+/* seletor :root no início do CSS para centralizar as variáveis globais de cores e fontes do projeto. Isso padroniza a identidade visual e facilita a manutenção do código*/
+:root {
+  --vermelho: #AD1F23;
+  --preto: #000000;
+  --branco: #FFFFFF;
+  --cinza-fundo: #F4F6F9;
+  --cinza-cartao: #E4E8F0;
+
+  --fonte-titulo: "Montserrat", "Segoe UI", Arial, sans-serif;
+  --fonte-texto: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cinza-fundo);
+  color: var(--preto);
+  font-family: var(--fonte-texto);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+a:focus-visible, button:focus-visible { 
+  outline: 3px solid var(--vermelho); 
+  outline-offset: 3px; 
+}
+
+/*  Botão Voltar */
+.botao-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  margin-top: 20px;
+  padding: 0 15px;
+  border: 1px solid #e4e4e4;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #252830;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.botao-voltar:hover {
+  border-color: #f2caca;
+  background: #fce8e8;
+  color: #a81c1c;
+}
+
+/*  Cabeçalho e Ações */
+.cabecalho-principal {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.etiqueta-topo {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vermelho);
+  margin-bottom: 10px;
+}
+
+.conteudo-titulo h1 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.15;
+  color: #111111;
+}
+.subtitulo { margin-top: 10px; font-size: 16px; color: #555a62; }
+
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #eeeeee;
+  color: #333333;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge-status.producao { background: #fce8e8; color: #a81c1c; }
+.badge-status.finalizado { background: #141414; color: #ffffff; }
+
+.grupo-botoes { display: flex; align-items: flex-start; gap: 12px; }
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color .2s ease, color .2s ease;
+}
+.botao-vermelho {
+  height: 48px;
+  padding: 0 26px;
+  border: 0;
+  background: var(--vermelho);
+  color: var(--branco);
+}
+.botao-vermelho:hover { background: #8f191d; }
+
+.botao-linha {
+  height: 42px;
+  padding: 0 20px;
+  border: 1.5px solid var(--preto);
+  background: transparent;
+  color: var(--preto);
+  font-size: 14px;
+  font-weight: 700;
+}
+.botao-linha:hover { background: var(--preto); color: var(--branco); }
+
+/* Área do preview */
+.secao-preview {
+  margin-top: 28px;
+  padding: 32px 24px 26px;
+  background: var(--cinza-cartao);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.legenda-fim {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8a8f98;
+  text-align: center;
+}
+
+/* Folha A4 */
+.folha-a4 {
+  background-color: #ffffff;
+  color: #000000;
+  width: min(210mm, 100%);
+  max-width: 210mm;
+  min-height: 297mm;
+  padding: 22mm 22mm 18mm 22mm;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.a4-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.a4-logo img {
+  width: 110px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.a4-lado-direito { text-align: right; }
+
+.a4-titulo {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20pt;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 4px 0;
+}
+
+.a4-data { font-size: 11pt; margin: 0; }
+
+.a4-cliente { margin-bottom: 18px; }
+.a4-cliente p { margin: 2px 0; }
+.a4-intro { margin-bottom: 12px; }
+
+.a4-itens { margin-bottom: 20px; }
+.a4-item {
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+.a4-condicoes { margin-bottom: 20px; }
+.a4-condicoes h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+}
+.a4-condicoes ul { padding-left: 20px; margin: 0; }
+.a4-condicoes li { margin-bottom: 4px; }
+
+.a4-fechamento { margin-bottom: 20px; }
+.a4-fechamento p { margin: 2px 0; }
+.a4-saudacao { margin-top: 14px !important; display: block; }
+.a4-nomes-responsaveis { margin-top: 14px !important; }
+.a4-empresa { margin-top: 14px !important; display: block; }
+
+.a4-rodape {
+  margin-top: auto;
+  text-align: center;
+  font-size: 10pt;
+  line-height: 1.4;
+  padding-top: 16px;
+}
+.a4-rodape p { margin: 2px 0; }
+.a4-rodape-titulo { font-size: 11pt; font-weight: bold; margin-bottom: 4px !important; }
+
+/* Impressão */
+
+/* Conteúdo da página */
+.pagina {
+    min-width: 0;
+    margin: 0;
+    padding: 0 40px 40px;
+}
+
+@media (max-width: 900px) {
+    .pagina {
+        padding: 0 24px 32px;
+    }
+
+    .cabecalho-principal {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .pagina {
+        width: 100%;
+        padding: 0 16px 24px;
+    }
+
+    .conteudo-titulo h1 {
+        font-size: clamp(28px, 7vw, 36px);
+    }
+
+    .grupo-botoes {
+        flex-wrap: wrap;
+    }
+
+    .secao-preview {
+        padding: 20px 12px;
+        border-radius: 24px;
+    }
+
+    .folha-a4 {
+        padding: clamp(16px, 5.5vw, 22mm);
+    }
+
+    .a4-cabecalho {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grupo-botoes {
+        width: 100%;
+    }
+
+    .grupo-botoes .botao {
+        flex: 1 1 100%;
+    }
+
+    .a4-logo img {
+        width: 88px;
+    }
+}
+
+/* Impressão */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    html, body {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        overflow: hidden !important;
+    }
+
+    /* Esconde o menu na impressão */
+    menu-lateral {
+        display: none !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    .folha-a4,
+    .folha-a4 * {
+        visibility: visible !important;
+    }
+
+    .folha-a4 {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        padding: 18mm 20mm 15mm 20mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+    }
+}
